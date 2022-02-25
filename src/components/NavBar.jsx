@@ -1,6 +1,7 @@
 import React from 'react'
-import logo from '../sushi-logo.png'
+import logo from '../img/logo/sushi-logo.png'
 import {Navbar,Nav, NavDropdown} from 'react-bootstrap';
+import CartWidget from './CartWidget';
 
 
 const  NavBar = () => {
@@ -31,6 +32,7 @@ const  NavBar = () => {
               
             </Nav>
             </Navbar.Collapse>
+            <CartWidget />
         
     </Navbar>
     </div>
