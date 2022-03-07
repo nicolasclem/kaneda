@@ -6,7 +6,7 @@ const Item = (props) => {
 
   return (
     <div>
-        <h2 class="display-2 text-center mt-5">{greeting}</h2>
+        <h2 className="display-2 text-center mt-5">{greeting}</h2>
     </div>
   )
 }

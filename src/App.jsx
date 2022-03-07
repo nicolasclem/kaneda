@@ -1,7 +1,7 @@
 
 import 'bootstrap/dist/css/bootstrap.css'
 import ItemListContainer from './components/ItemListContainer';
-import NavBar from "./components/NavBar";
+import NavBar from "./components/NavBar/NavBar";
 
 
 

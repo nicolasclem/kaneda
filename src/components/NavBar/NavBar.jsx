@@ -1,7 +1,8 @@
 import React from 'react'
-import logo from '../img/logo/sushi-logo.png'
-import {Navbar,Nav, NavDropdown} from 'react-bootstrap';
-import CartWidget from './CartWidget';
+import './navbar.css'
+import logo from '../../img/logo/sushi-logo.png'
+import {Navbar,Nav, NavDropdown, NavLink} from 'react-bootstrap';
+import CartWidget from '../CartWidget';
 
 
 const  NavBar = () => {
@@ -11,7 +12,7 @@ const  NavBar = () => {
         
             <Navbar.Brand className='mx-2' href="#home"> <img className='mx-2'  src={logo} width="45px" heigth="45px" alt="logo"/>
             
-            Kaneda
+            <p className='d-inline  align-top fuente-Logo d-b'>KANEDA</p> 
             </Navbar.Brand>
 
             <Navbar.Toggle className='mx-2'/>
@@ -32,7 +33,7 @@ const  NavBar = () => {
               
             </Nav>
             </Navbar.Collapse>
-            <CartWidget />
+            <NavLink> <CartWidget /> </NavLink>
         
     </Navbar>
     </div>
