@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react'
+//import { getProductId } from '../Helpers/ApisFetch'
+//import ItemDetailContainer from './ItemDetailContainer'
 //import ItemCount from './ItemCount/ItemCount'
 import ItemList from './ItemList/ItemList'
 import Spiner from './Spiner/Spiner'
@@ -6,6 +8,7 @@ import Spiner from './Spiner/Spiner'
 const ItemListContainer = () => {
 
   const [productos ,setProductos]=useState([])
+  
   const [loading, setLoading]=useState(true)
 
 
@@ -77,22 +80,20 @@ const ItemListContainer = () => {
 
     },[])
 
-  console.log(productos);
+    
 
     const onAdd= (name,valor)=>{
       console.log(`hola me voy al  carrito  soy : ${name} cantidades: ${valor}`);
     }
 
-    const detailProduct = (id)=>{
-      console.log(`soy el detalle  del producto con id :  ${id}`);
-    }
    
+
   return (
     <div>
         <div>
-        {/* <ItemCount stock={8} initial={1} onAdd={onAdd} /> */}
-        {loading ? <Spiner />:<ItemList productos={productos}  onAdd={onAdd}  detailProduct={detailProduct} />}
+        {loading ? <Spiner />:<ItemList productos={productos}  onAdd={onAdd}  />}
 
+        
         </div>
     </div>
   )

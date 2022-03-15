@@ -7,6 +7,7 @@ import './ItemCount.css'
 const ItemCount = (props) => {
 
 const {stock ,initial, onAdd,producto}=props
+ 
 
   const initialDisabled = ()=> valor===0?true:false
   const [valor ,setValor]=useState(initial)
@@ -26,7 +27,7 @@ const {stock ,initial, onAdd,producto}=props
 
   const enviarCarrito = ()=>{
       onAdd(producto.name,valor)
-
+   
     }
 
 

@@ -17,9 +17,9 @@ const  NavBar = () => {
 
             <Navbar.Toggle className='mx-2'/>
             <Navbar.Collapse>
-            <Nav className="mx-auto">
+            <Nav className="mx-auto fs-4">
             
-                <Nav.Link  className='mx-5' href="#home">Inicio</Nav.Link>
+                <Nav.Link  className='mx-5 ' href="#home">Inicio</Nav.Link>
                 <NavDropdown className='mx-5' title="Menu">
                     <NavDropdown.Item   href="#">Entrada</NavDropdown.Item>
                     <NavDropdown.Item   href="#">Principal</NavDropdown.Item>
