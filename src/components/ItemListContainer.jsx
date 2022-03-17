@@ -77,7 +77,7 @@ const ItemListContainer = () => {
         (err)=>console.log(err)
       )
       .finally(()=>setLoading(false))
-
+      // eslint-disable-next-line
     },[])
 
     

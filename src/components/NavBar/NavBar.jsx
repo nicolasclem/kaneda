@@ -3,6 +3,7 @@ import './navbar.css'
 import logo from '../../img/logo/sushi-logo.png'
 import {Navbar,Nav, NavDropdown, NavLink} from 'react-bootstrap';
 import CartWidget from '../CartWidget';
+//import { Link } from 'react-router-dom';
 
 
 const  NavBar = () => {
@@ -29,7 +30,7 @@ const  NavBar = () => {
 
 
                 </NavDropdown>
-                <Nav.Link  className='mx-5' href="#np">Contacto</Nav.Link>
+              <Nav.Link  className='mx-5' href="#np">Contacto</Nav.Link>
               
             </Nav>
             </Navbar.Collapse>

@@ -10,9 +10,12 @@ const ItemList = (props) => {
   const {productos,onAdd }=props
 
   const [detail ,setDetail]=useState([])
+
+
   const [detailID ,setDetailID]=useState('')
 
-  const [totoro ,setTotoro]=useState(true)
+
+  const [totoro ,setTotoro]=useState(true)// loading
 
   
 
@@ -22,15 +25,13 @@ const ItemList = (props) => {
   }
 
   useEffect(()=>{
-  console.log(`Clikea info espera 2 segundos ..llega la info del producto con id:  ${detailID || "todavia no hay click"}`);
-  if(detailID){
-  setTimeout(()=> {  
+  if(detailID){  
     getProductId(detailID)
     .then((res)=>res.json())
     .then(res=>setDetail(res))
     .catch((err)=>console.log(err))
     .finally(()=>setTotoro(false))
-    },2000)}else{
+  }else{
       console.log("Nadie  clickeo en info");
     }  
   },[detailID])
@@ -41,7 +42,7 @@ const ItemList = (props) => {
         <div className="d-flex flex-wrap justify-content-around">
             {productos.map((producto)=> <Item  producto={producto} key={producto.id} onAdd={onAdd}  detailProduct={ detailProduct}/>)}
         </div>
-        {totoro?<Totoro />:<ItemDetailContainer    onAdd={onAdd} detail={detail} />}
+        {totoro?<Totoro />:<ItemDetailContainer    detail={detail} />}
       </div>
         
   )

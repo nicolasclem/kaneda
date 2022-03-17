@@ -8,7 +8,7 @@ const Item = (props) => {
   const { onAdd , producto, detailProduct}=props
 
   const detailItem=()=>{
-    detailProduct(producto.id,producto.name)
+    detailProduct(producto.id)
 
 
   }
@@ -19,8 +19,8 @@ const Item = (props) => {
           <img className="card__image" src={producto.img} alt="..." />
           <div className="card__data">
             <div className="card__info">
-              <h2 className='fs-5' >{producto.name}</h2>
-              <p className='fs-6'>{producto.descripcion}</p>
+              <h2 >{producto.name}</h2>
+              <p >{producto.descripcion}</p>
               
             </div>
             <ItemCount stock={8} initial={1} onAdd={onAdd} producto={producto}/>
