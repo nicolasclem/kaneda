@@ -2,26 +2,38 @@
 import 'bootstrap/dist/css/bootstrap.css'
 import ItemListContainer from './components/ItemListContainer';
 import NavBar from "./components/NavBar/NavBar";
-// import {
-//   BrowserRouter,
-//   Routes,
-//   Route,
-// } from "react-router-dom";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+} from "react-router-dom";
+
+import Error404 from './components/Error404/Error404';
+import ItemDetailContainer from './components/ItemDetailContainer';
+import Reservas from './components/Reservas/Reservas';
+import Footer from './components/Footer/Footer';
 
 
 
 function App() {
   return (
-    // <BrowserRouter>
-    <div>
+    <BrowserRouter>
+
     <NavBar />
-    <ItemListContainer />
-    {/* <Routes>
-    <Route path='/' element={}/>
     
-    </Routes> */}
-    {/* </BrowserRouter> */}
-    </div>
+    <Routes>
+    <Route path='/' element={<ItemListContainer />}/>
+    <Route path='/category/:id' element={<ItemListContainer />}/>
+    <Route path='/item/:id' element={<ItemDetailContainer />}/>
+    <Route path='reservas'element={<Reservas />}/>
+    
+    <Route path='*'element={<Error404 />}/>
+    
+    </Routes> 
+
+    <Footer />
+    </BrowserRouter> 
+    
   );
 }
 

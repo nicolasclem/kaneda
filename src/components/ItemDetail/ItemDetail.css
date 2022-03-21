@@ -1,0 +1,8 @@
+.backbutton{
+    border: none;
+    background: transparent;
+    color: #999;
+    font-size: large;
+    font-weight: 700;
+    font-family:inherit
+}

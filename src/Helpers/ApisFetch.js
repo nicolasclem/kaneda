@@ -6,7 +6,11 @@ export function getProduct(){
 }
 
 export function getProductId(id){
-    return fetch(`${URL}${id}`)
+    return fetch(
+        `${URL}${id}`
+      
+          
+         )
 
 }
 
