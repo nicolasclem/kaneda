@@ -37,7 +37,7 @@ const ItemListContainer = () => {
 
   return (
     <div>
-        <div>
+        <div className='mb-5'>
         {loading ? <Spiner />:<ItemList productos={productos}   />}
 
         

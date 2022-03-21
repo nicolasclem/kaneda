@@ -3,12 +3,12 @@ import React from 'react'
 const Footer = () => {
   return (
    
-    <div className="hstack gap-3  bg-dark   pb-2 px-5 text-white-50 position-absolute bottom-n2 w-100 fst-italic">
+    <div className="hstack gap-3  bg-dark   pb-2 px-5 text-white-50 fixed-bottom   w-100 fst-italic">
     <div className="bg-dark  ">
         KANEDA
     </div>
     <div className="bg-dark position-absolute bottom-0 ">
-    <span>&copy; NC</span>
+    <span>&copy; nc</span>
     </div>
     <div className="bg-dark  ms-auto">
         <div className="vstack gap-2 ">
