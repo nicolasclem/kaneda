@@ -15,7 +15,7 @@ const ItemListContainer = () => {
   
 
     useEffect(()=>{
-
+    
       getProduct().then((res)=>res.json())
       .then( 
         (res)=>{
@@ -26,7 +26,7 @@ const ItemListContainer = () => {
         (err)=>console.log(err)
       )
       .finally(()=>setLoading(false))
-      
+   
     },[id])
 
     

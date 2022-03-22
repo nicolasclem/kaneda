@@ -1,16 +1,17 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import './Error404.css'
 
 const Error404 = () => {
     const Navigate=useNavigate()
 
-    const backHome=()=>{
-        setTimeout(()=>{           
-            Navigate(-1)
-        },3000)
-    }
-    backHome()
+    useEffect(()=>{
+      setTimeout(()=>{           
+        Navigate(-1)
+      },3000)
+      // eslint-disable-next-line
+    },[])
+ 
   return (
     <div className='ConteinerError'>
     <div className="error">404</div>
