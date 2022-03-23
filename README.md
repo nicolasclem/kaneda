@@ -15,4 +15,4 @@
 Runs the app in the development mode
   
 
- ![image](https://github.com/nicolasclem/kaneda-clementi-pedro/coderHouse.gif)
+ ![image](https://github.com/nicolasclem/kaneda-clementi-pedro/master/coderHouse.gif)
