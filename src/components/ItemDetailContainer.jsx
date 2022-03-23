@@ -10,6 +10,9 @@ const ItemDetailContainer = ({detail}) => {
 
   const [loading, setLoading]=useState(true)
 
+
+  
+
   const {id}=useParams()
 
 
@@ -26,8 +29,9 @@ const ItemDetailContainer = ({detail}) => {
     // eslint-disable-next-line
   },[])
 
-  const onAdd= (name,valor)=>{
-    console.log(`hola me voy al  carrito  soy : ${name} cantidades: ${valor}`);
+  const onAdd= (producto,valor)=>{
+    console.log( `cantidad = ${valor} del producto:  `, producto );
+
   }
   return (
     <div>

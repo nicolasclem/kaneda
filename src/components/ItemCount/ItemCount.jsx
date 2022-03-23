@@ -6,12 +6,14 @@ import './ItemCount.css'
 
 const ItemCount = (props) => {
 
-const {stock ,initial, onAdd,item}=props
+const {stock ,initial, onAdd,item, setShowCount}=props
  
 
   const initialDisabled = ()=> valor===0?true:false
   const [valor ,setValor]=useState(initial)
   const [disabled ,setDisabled]=useState( initialDisabled) 
+
+ 
 
   const incremento = ()=>{
     valor < 1 && setDisabled(false)
@@ -26,9 +28,16 @@ const {stock ,initial, onAdd,item}=props
   }
 
   const enviarCarrito = ()=>{
-      onAdd(item.name,valor)
-   
-    }
+
+      const productToCart ={
+        id:item.id,
+        name:item.name,
+        price:item.price
+       
+      }
+      onAdd(productToCart,valor)
+      setShowCount(false)
+}
 
 
 

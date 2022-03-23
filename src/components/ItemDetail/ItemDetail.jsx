@@ -2,7 +2,7 @@ import React, { useEffect, useState }  from 'react'
 import ItemCount from '../ItemCount/ItemCount'
 import'./ItemDetail.css'
 import 'animate.css'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 
 
@@ -10,6 +10,8 @@ const ItemDetail = (props) => {
   const {item,onAdd}=props
 
   const [isMobile, setIsMobile]=useState(false)
+
+  const[showCount ,setShowCount]=useState(true)
 
   const history = useNavigate()
 
@@ -49,7 +51,12 @@ const ItemDetail = (props) => {
     <p className='fs-6'>Stock :{item.stock}</p>
     <p className='fs-6'>Categoria :{item.category}</p>
     <div className='w-50 '>
-    <ItemCount stock={item.stock} initial={1} onAdd={onAdd} item={item}/>
+    {showCount?
+    <ItemCount stock={item.stock} initial={1} onAdd={onAdd} item={item} setShowCount={setShowCount}/>: 
+    <Link to="/cart" className="btn btn-outline-success">FINALIZAR COMPRA</Link>
+ 
+    }
+   
     </div>
   </div>
 </div>
