@@ -1,5 +1,8 @@
-import React, { useEffect, useState }  from 'react'
+import React, { useContext, useEffect, useState }  from 'react'
+import { CartContext } from '../../context/CartContext'
 import ItemCount from '../ItemCount/ItemCount'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import'./ItemDetail.css'
 import 'animate.css'
 import { Link, useNavigate } from 'react-router-dom'
@@ -7,13 +10,51 @@ import { Link, useNavigate } from 'react-router-dom'
 
 
 const ItemDetail = (props) => {
-  const {item,onAdd}=props
+  const {item}=props
+
+   const [quantity, setQuantity] = useState(1)
 
   const [isMobile, setIsMobile]=useState(false)
 
   const[showCount ,setShowCount]=useState(true)
 
   const history = useNavigate()
+
+
+  const { addItem, isInCart } = useContext(CartContext)
+
+
+
+  const handleAdd = ()=>{
+
+
+    if(!isInCart(item.id)){
+  
+      const productToCart ={
+        id:item.id,
+        name:item.name,
+        price:item.price,
+        categoria:item.category,
+        cantidad:quantity
+  
+      }
+    addItem(productToCart)
+    setShowCount(false)
+    } else{
+    
+      toast.warn('🦄 ya estoy en carrito !!', {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        });
+    }
+    
+  }
+  
 
   useEffect(()=>{
 
@@ -32,6 +73,8 @@ const ItemDetail = (props) => {
       window.removeEventListener('resize',CheckMobile)
     }
   },[])
+
+
 
   return (
     <div className="d-flex justify-content-center mb-5  ml-4 animate__animated animate__fadeInLeft animate__slow">
@@ -52,11 +95,20 @@ const ItemDetail = (props) => {
     <p className='fs-6'>Categoria :{item.category}</p>
     <div className='w-50 '>
     {showCount?
-    <ItemCount stock={item.stock} initial={1} onAdd={onAdd} item={item} setShowCount={setShowCount}/>: 
-    <Link to="/cart" className="btn btn-outline-success">FINALIZAR COMPRA</Link>
- 
+    <ItemCount 
+
+    stock={item.stock} 
+    handleAdd={handleAdd} 
+    setShowCount={setShowCount}
+    quantity={quantity}
+    setQuantity={setQuantity}    
+    />: 
+    <div >
+    <Link to="/" className=" mx-auto btn btn-outline-dark">CONTINUAR COMPRA</Link>
+    <Link to="/cart" className="pt-1 btn btn-outline-success">FINALIZAR COMPRA</Link>
+    </div>
     }
-   
+   <ToastContainer />
     </div>
   </div>
 </div>

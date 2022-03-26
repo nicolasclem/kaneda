@@ -8,6 +8,8 @@
    [react-bootstrap](https://react-bootstrap.github.io/)
    [animate.css](https://animate.style/)
    [react-router-dom](https://reactrouter.com/)
+   [react-icons](https://react-icons.github.io/react-icons)
+   [react-toastify](https://fkhadra.github.io/react-toastify)
 
 
 ### `npm start`

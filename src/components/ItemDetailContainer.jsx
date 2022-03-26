@@ -29,13 +29,9 @@ const ItemDetailContainer = ({detail}) => {
     // eslint-disable-next-line
   },[])
 
-  const onAdd= (producto,valor)=>{
-    console.log( `cantidad = ${valor} del producto:  `, producto );
-
-  }
   return (
     <div>
-        {loading?<Spiner />:<ItemDetail item={item} onAdd={onAdd} />}
+        {loading?<Spiner />:<ItemDetail item={item} />}
     </div>
   )
 }

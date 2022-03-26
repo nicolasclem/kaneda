@@ -1,4 +1,4 @@
-import React, {useState } from 'react'
+import React, {useState  } from 'react'
 import {Button} from 'react-bootstrap'
 import './ItemCount.css'
 
@@ -6,38 +6,30 @@ import './ItemCount.css'
 
 const ItemCount = (props) => {
 
-const {stock ,initial, onAdd,item, setShowCount}=props
+const {stock , handleAdd,  setQuantity, quantity}=props
  
 
-  const initialDisabled = ()=> valor===0?true:false
-  const [valor ,setValor]=useState(initial)
+
+
+  const initialDisabled = ()=> quantity===0?true:false
+
+
+
   const [disabled ,setDisabled]=useState( initialDisabled) 
 
- 
 
   const incremento = ()=>{
-    valor < 1 && setDisabled(false)
-    valor < stock ? setValor(valor+1): console.log("NO TENEMOS MAS!!");
+    quantity < 1 && setDisabled(false)
+    quantity < stock ? setQuantity(quantity+1): console.log("NO TENEMOS MAS!!");
 
   }
   const decremento = ()=>{
     
-  valor === 1 && setDisabled(!disabled)
+  quantity === 1 && setDisabled(!disabled)
   
-  valor > 0 && setValor(valor-1) 
+  quantity > 0 && setQuantity(quantity-1) 
   }
 
-  const enviarCarrito = ()=>{
-
-      const productToCart ={
-        id:item.id,
-        name:item.name,
-        price:item.price
-       
-      }
-      onAdd(productToCart,valor)
-      setShowCount(false)
-}
 
 
 
@@ -46,14 +38,15 @@ const {stock ,initial, onAdd,item, setShowCount}=props
       
         <div className='d-flex justify-content-evenly mt-3'>
         <Button variant="dark" className='"d-flex align-items-center" btn-contador fs-6'onClick={decremento} disabled={disabled}> <span>-</span>  </Button>
-        <span className='d-inline m-auto fs-5'>{valor}</span>
+        <span className='d-inline m-auto fs-5'>{quantity}</span>
         <Button variant="dark" className='"d-flex align-items-center" btn-contador fs-6'  onClick={incremento}>  <span>+</span>  </Button>        
         </div>
 
         <div className='d-flex justify-content-center mt-3'>
-        <Button variant="outline-dark" onClick={enviarCarrito} disabled={disabled} >Agregar a Carrtio</Button>
+        <Button variant="outline-dark" onClick={handleAdd} disabled={disabled}>Agregar a Carrtio</Button>
         </div>
-   
+        
+       
   
     </div>
     
