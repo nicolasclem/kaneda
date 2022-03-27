@@ -77,6 +77,7 @@ const Cart = () => {
 
     <tr key={item.id}>
       <th scope="row">{item.name}</th>
+      {/* agregar contador para setear cantidad desde la vista del Cart */}
       <td>{item.cantidad}</td>
       <td>$ {item.price}</td>
       <td>$ {item.cantidad * item.price}</td>
