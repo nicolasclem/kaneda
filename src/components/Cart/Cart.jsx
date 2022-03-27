@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react'
 
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { CartContext } from '../../context/CartContext'
 
 import cartVacio from '../../img/cart/totorollora.gif'
@@ -21,6 +21,7 @@ const Cart = () => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   
+  const Navigate=useNavigate()
   
   const chekPostre = ()=>{
     if(cart.some((item)=>item.categoria==='postre')){
@@ -42,8 +43,10 @@ const Cart = () => {
     console.log(`le pego a la api de mercado-pago ======> 
     ${JSON.stringify(prueba)}      
     total $ ${pesosTotalCart()}`);
-    
+
     handleClose()
+    clear()
+    Navigate('/')
   }
 
 
