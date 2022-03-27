@@ -41,8 +41,10 @@ const ItemDetail = (props) => {
     addItem(productToCart)
     setShowCount(false)
     } else{
-    
-      toast.warn('🦄 ya estoy en carrito !!', {
+
+      // hacer  logica para q sume cantidades  de productos iguales  ---- limite  stock
+     
+      toast.warn('🦄 ya estoy en el carrito !!', {
         position: "top-right",
         autoClose: 2000,
         hideProgressBar: false,
@@ -51,6 +53,7 @@ const ItemDetail = (props) => {
         draggable: true,
         progress: undefined,
         });
+      
     }
     
   }

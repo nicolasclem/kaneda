@@ -14,7 +14,7 @@ import { Button, Modal } from 'react-bootstrap'
 
 const Cart = () => {
 
-  const {removeItem,clear,cart}= useContext(CartContext)  
+  const {removeItem,clear,cart,pesosTotalCart}= useContext(CartContext)  
   
   const [show, setShow] = useState(false);
 
@@ -75,14 +75,15 @@ const Cart = () => {
 
     </table>
         
+      <div className='fs-4 mx-auto'>
+      <span className='fw-bolder'>TOTAL DE COMPRA : $ {pesosTotalCart()}</span>
+      </div>
       <div>
         <button className='btn btn-outline-danger' onClick={clear}>Vaciar Carrito</button>
         <button className='btn btn-outline-success' onClick={chekPostre}>PAGAR</button>
       </div>
 
       <Link to="/" className="btn fs-5 cartFont">Quiero Mas!</Link>
-
-
 
       <Modal
         show={show}
