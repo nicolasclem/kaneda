@@ -16,8 +16,6 @@ const ItemDetail = (props) => {
 
   const [isMobile, setIsMobile]=useState(false)
 
-  const[showCount ,setShowCount]=useState(true)
-
   const history = useNavigate()
 
 
@@ -27,8 +25,6 @@ const ItemDetail = (props) => {
 
   const handleAdd = ()=>{
 
-
-    if(!isInCart(item.id)){
   
       const productToCart ={
         id:item.id,
@@ -39,31 +35,38 @@ const ItemDetail = (props) => {
   
       }
     addItem(productToCart)
-    setShowCount(false)
-    } else{
 
-      // hacer  logica para q sume cantidades  de productos iguales  ---- limite  stock
-     
-      toast.warn('🦄 ya estoy en el carrito !!', {
-        position: "top-right",
-        autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        });
-      
-    }
     
   }
   
+  useEffect(()=>{
+
+    setTimeout(()=>{
+      
+      if(isInCart(item.id)){
+        toast.warn('🦄 ya estoy en el carrito !!', {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          });
+  
+      }
+    },2000)
+
+// eslint-disable-next-line
+  },[])
+
+
 
   useEffect(()=>{
 
     const CheckMobile =()=>{
       if (window.visualViewport.width <= 1024){
-           setIsMobile(true)
+          setIsMobile(true)
       }else{
         setIsMobile(false)
       }
@@ -97,12 +100,11 @@ const ItemDetail = (props) => {
     <p className='fs-6'>Stock :{item.stock}</p>
     <p className='fs-6'>Categoria :{item.category}</p>
     <div className='w-50 '>
-    {showCount?
+    {!isInCart(item.id)?
     <ItemCount 
 
     stock={item.stock} 
     handleAdd={handleAdd} 
-    setShowCount={setShowCount}
     quantity={quantity}
     setQuantity={setQuantity}    
     />: 

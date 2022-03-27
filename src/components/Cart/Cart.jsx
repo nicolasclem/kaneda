@@ -31,7 +31,18 @@ const Cart = () => {
     }
   }
   const pagar=()=>{
-    console.log("disparar  la api de mercado-pago");
+
+    const prueba = cart.map((x)=>{
+      return({
+        nombre:x.name,
+        totalItem: x.price * x.cantidad
+      })
+    })
+    
+    console.log(`le pego a la api de mercado-pago ======> 
+    ${JSON.stringify(prueba)}      
+    total $ ${pesosTotalCart()}`);
+    
     handleClose()
   }
 
@@ -74,7 +85,7 @@ const Cart = () => {
     </tbody>
 
     </table>
-        
+        <hr/>
       <div className='fs-4 mx-auto'>
       <span className='fw-bolder'>TOTAL DE COMPRA : $ {pesosTotalCart()}</span>
       </div>
@@ -91,7 +102,7 @@ const Cart = () => {
         backdrop="static"
         keyboard={false}
       >
-        <Modal.Header>
+        <Modal.Header closeButton>
           <Modal.Title className='cartFont  mx-auto display-4'>Kaneda</Modal.Title>
         </Modal.Header>
         <Modal.Body className='cartFont mx-auto fs-3'>
