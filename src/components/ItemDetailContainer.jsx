@@ -1,6 +1,8 @@
+import { doc,getDoc } from 'firebase/firestore'
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { getProduct} from '../Helpers/ApisFetch'
+import { db } from '../firebase/config'
+
 import ItemDetail from './ItemDetail/ItemDetail'
 import Spiner from './Spiner/Spiner'
 
@@ -19,10 +21,18 @@ const ItemDetailContainer = ({detail}) => {
 
   useEffect(()=>{
 
-    getProduct()
-    .then((res)=>res.json())
-    .then((res)=> setItem(res.find((e)=>e.id === id)  ))
-    .catch((err)=>console.log(err))
+
+    const itemRef =doc(db,'productos',id)
+
+    getDoc(itemRef)
+    .then((res)=>{
+      setItem({
+          id: res.id,
+          ...res.data()
+        })
+      })
+  
+   
 
     .finally(()=>setLoading(false))
   

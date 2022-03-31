@@ -1,6 +1,8 @@
+import { collection , getDocs, query, where} from 'firebase/firestore'
+import {db} from '../firebase/config'
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { getProduct } from '../Helpers/ApisFetch'
+
 import ItemList from './ItemList/ItemList'
 import Spiner from './Spiner/Spiner'
 
@@ -15,16 +17,24 @@ const ItemListContainer = () => {
   
 
     useEffect(()=>{
-    
-      getProduct().then((res)=>res.json())
-      .then( 
-        (res)=>{
-          !id?setProductos(res): setProductos(res.filter(item=>item.category === id))
-        }  
-      )
-      .catch(
-        (err)=>console.log(err)
-      )
+
+
+      const productosRef = collection(db ,'productos');
+      const q= id?query(productosRef, where('category','==',id)):productosRef
+
+      getDocs(q)
+      .then((res)=>{
+        setProductos(res.docs.map((doc)=> {
+          return{
+            id: doc.id,
+            ...doc.data()
+          }
+        })
+        )
+      })
+
+
+   
       .finally(()=>setLoading(false))
    
     },[id])
