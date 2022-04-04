@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react'
 
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { CartContext } from '../../context/CartContext'
 
 import cartVacio from '../../img/cart/totorollora.gif'
@@ -9,7 +9,8 @@ import {TiDeleteOutline} from 'react-icons/ti'
 import {MdOutlineArrowRight} from 'react-icons/md'
 
 import './Cart.css'
-import { Button, Modal } from 'react-bootstrap'
+//import { Button, Modal } from 'react-bootstrap'
+import Checkout from '../CheckOut/Checkout'
 
 
 const Cart = () => {
@@ -17,37 +18,34 @@ const Cart = () => {
   const {removeItem,clear,cart,pesosTotalCart}= useContext(CartContext)  
   
   const [show, setShow] = useState(false);
-
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
   
-  const Navigate=useNavigate()
+  //const Navigate=useNavigate()
   
-  const chekPostre = ()=>{
-    if(cart.some((item)=>item.categoria==='postre')){
-      pagar()
-    }else{
-      handleShow()
+  // const chekPostre = ()=>{
+  //   if(cart.some((item)=>item.categoria==='postre')){
+  //     pagar()
+  //   }else{
+  //     handleShow()
 
-    }
-  }
-  const pagar=()=>{
+  //   }
+  // }
+  // const pagar=()=>{
 
-    const prueba = cart.map((x)=>{
-      return({
-        nombre:x.name,
-        totalItem: x.price * x.cantidad
-      })
-    })
+  //   const prueba = cart.map((x)=>{
+  //     return({
+  //       nombre:x.name,
+  //       totalItem: x.price * x.cantidad
+  //     })
+  //   })
     
-    console.log(`le pego a la api de mercado-pago ======> 
-    ${JSON.stringify(prueba)}      
-    total $ ${pesosTotalCart()}`);
+  //   console.log(`le pego a la api de mercado-pago ======> 
+  //   ${JSON.stringify(prueba)}      
+  //   total $ ${pesosTotalCart()}`);
 
-    handleClose()
-    clear()
-    Navigate('/')
-  }
+  //   handleClose()
+  //   clear()
+  //   Navigate('/')
+  // }
 
 
   if (cart.length === 0) {
@@ -95,12 +93,12 @@ const Cart = () => {
       </div>
       <div>
         <button className='btn btn-outline-danger' onClick={clear}>Vaciar Carrito</button>
-        <button className='btn btn-outline-success' onClick={chekPostre}>PAGAR</button>
+        <button className='btn btn-outline-success' onClick={()=>setShow(!show)}>PAGAR</button>
       </div>
 
       <Link to="/" className="btn fs-5 cartFont">Quiero Mas!</Link>
 
-      <Modal
+      {/* <Modal
         show={show}
         onHide={handleClose}
         backdrop="static"
@@ -116,9 +114,9 @@ const Cart = () => {
         <Modal.Footer className='cartFont mx-auto fs-3'>
           NO QUIERO POSTRE !  <Button variant="success cartFont ms-4 p-2" onClick={pagar}>PAGAR</Button>
         </Modal.Footer>
-      </Modal>
+      </Modal> */}
  
-
+      <Checkout  show={show} setShow={setShow} />
     </div>
   )
 }

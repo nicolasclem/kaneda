@@ -10,7 +10,8 @@
    [react-router-dom](https://reactrouter.com/)
    [react-icons](https://react-icons.github.io/react-icons)
    [react-toastify](https://fkhadra.github.io/react-toastify)
-
+    [yup](https://github.com/jquense/yup)
+    [Formik](https://formik.org/)
 
 ### `npm start`
 
