@@ -6,7 +6,7 @@ import { db } from '../firebase/config'
 import ItemDetail from './ItemDetail/ItemDetail'
 import Spiner from './Spiner/Spiner'
 
-const ItemDetailContainer = ({detail}) => {
+const ItemDetailContainer = () => {
 
   const [item,setItem]=useState(null)
 

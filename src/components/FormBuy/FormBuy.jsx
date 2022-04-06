@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react'
 import { Button, Form } from 'react-bootstrap'
 import { ToastContainer } from 'react-toastify';
 import { CartContext } from '../../context/CartContext'
-//import { buyerSchema } from '../../validation/buyerValidation'
+
 
 import Order from '../Order/Order'
 import { generateOrder } from '../../Helpers/GenerateOrder';
@@ -30,8 +30,8 @@ const FormBuy = ({handleClose}) => {
         email:''
       },
       validationSchema:yup.object({
-        name:yup.string().required("nombre  obligatorio"),
-        email: yup.string().email("no es un email valido").required("email obligatorio")
+        name:yup.string().matches(/^([A-Z a-z]+[\s]*)+$/,'solo se aceptan letras').required("nombre  obligatorio*"),
+        email: yup.string().email("no es un email valido").required("email obligatorio*")
       })
       ,
       onSubmit: ()=>{
@@ -41,45 +41,6 @@ const FormBuy = ({handleClose}) => {
     })
     
 
-
-//     const [values ,setValues]=useState({
-//       name:'',
-//       email:''
-//     })
-    
-    
-
-//     const handleInputChange = e=>{
-//         setValues({
-//             ...values,
-//             [e.target.name]:e.target.value
-//         })
-//     }
-//     const handleSubmit = async  e=>{
-//         e.preventDefault()
-        
-//         let formData={
-//             name:e.target[0].value,
-//             email:e.target[1].value
-           
-//             }
-
-//         const isValid = await buyerSchema.isValid(formData)
-
-
-//       if(isValid){
-        
-//         generateOrder(values,cart,pesosTotalCart,setOrderid,handleClose,clear,navigate)
-//     }else{
-
-//        console.log("no funciono");
-//     }
-// }
-    //handleSubmit
-    //onChange={handleInputChange}
-    //value={values.name}
-    //value={values.email}
-    //style={{display:infoInput}}
 
     return (
     <div className='container my-5'>

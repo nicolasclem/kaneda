@@ -1,4 +1,4 @@
-import { collection , getDocs, query, where} from 'firebase/firestore'
+import { collection , getDocs, query, where, orderBy} from 'firebase/firestore'
 import {db} from '../firebase/config'
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
@@ -20,7 +20,7 @@ const ItemListContainer = () => {
 
 
       const productosRef = collection(db ,'productos');
-      const q= id?query(productosRef, where('category','==',id)):productosRef
+      const q= id?query(productosRef, where('category','==',id)): query(productosRef,orderBy("category","desc"))
 
       getDocs(q)
       .then((res)=>{
