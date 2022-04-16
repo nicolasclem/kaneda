@@ -1,21 +1,33 @@
 # Proyecto React  CODER-HOUSE c-28200
-    KANEDA
-    Ecommerce  -- comida oriental!
+
+***KANEDA***
+
+Ecommerce desarrollado con ***_ReactJS_*** dedicado a comercializar  comida oriental  en modo _delivery_
 
 ## Dependencias utilizadas
   
-   [bootstrap](https://getbootstrap.com/)
-   [react-bootstrap](https://react-bootstrap.github.io/)
-   [animate.css](https://animate.style/)
-   [react-router-dom](https://reactrouter.com/)
-   [react-icons](https://react-icons.github.io/react-icons)
-   [react-toastify](https://fkhadra.github.io/react-toastify)
-    [yup](https://github.com/jquense/yup)
-    [Formik](https://formik.org/)
 
+|Libreria          |  URL 
+|---- | ----- |
+|**_Estilos_**           |  [bootstrap](https://getbootstrap.com/) |
+|**_Estilos_**           |  [react-bootstrap](https://react-bootstrap.github.io/)|
+|**_Animaciones__**      |  [animate.css](https://animate.style/)|
+|**_Navegacion_**        |  [react-router-dom](https://reactrouter.com/)|
+|**_Iconos_**            |  [react-icons](https://react-icons.github.io/react-icons)|
+|**_Validacion_**        |  [yup](https://github.com/jquense/yup)|
+|**_Formulario_**        |  [Formik](https://formik.org/)|
+
+
+## **INSTALACION**
+ ### `npm install`
+
+Para instalar el proyecto  
 ### `npm start`
 
-Runs the app in the development mode
+Para iniciar la aplicacion
+
+
+el Proyecto corre  en  **Localhost:3000/**
   
 
  ![image](/coderHouse.gif)

@@ -21,6 +21,8 @@ const ItemDetail = (props) => {
 
   const { addItem, isInCart } = useContext(CartContext)
 
+  
+
 
 
   const handleAdd = ()=>{
@@ -87,6 +89,7 @@ const ItemDetail = (props) => {
     {!isMobile&&<img src={'https://i.postimg.cc/qB6L9Fxh/totoro2.png'} className='w-25 mh-25 mr-5' alt='...'/>}  
     
   <div className="container card w-50 mh-50 mt-5 shadow p-3 mb-5 bg-body rounded bg-light" >
+  {item.sale&& <img src={'https://i.postimg.cc/RVmrxcKs/sale.png'} className='opacity-50 w-25 h-25 position-absolute top-50 end-0' alt='...'/>}
   <div className="row mt-5">
   <div className=" col-4 h-100 bg-transparent position-relative ">
   <img src={item.img} className="card-img-top position-absolute top-25 start-50 translate-middle " alt="..."/>
@@ -99,6 +102,7 @@ const ItemDetail = (props) => {
     <p className='fs-4'>${item.price}</p>
     <p className='fs-6'>Stock :{item.stock}</p>
     <p className='fs-6'>Categoria :{item.category}</p>
+    
     <div className='w-50 '>
     {!isInCart(item.id)?
     <ItemCount 

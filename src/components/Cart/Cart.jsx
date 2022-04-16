@@ -9,7 +9,7 @@ import {TiDeleteOutline} from 'react-icons/ti'
 import {MdOutlineArrowRight} from 'react-icons/md'
 
 import './Cart.css'
-//import { Button, Modal } from 'react-bootstrap'
+
 import Checkout from '../CheckOut/Checkout'
 
 
@@ -19,34 +19,7 @@ const Cart = () => {
   
   const [show, setShow] = useState(false);
   
-  //const Navigate=useNavigate()
-  
-  // const chekPostre = ()=>{
-  //   if(cart.some((item)=>item.categoria==='postre')){
-  //     pagar()
-  //   }else{
-  //     handleShow()
-
-  //   }
-  // }
-  // const pagar=()=>{
-
-  //   const prueba = cart.map((x)=>{
-  //     return({
-  //       nombre:x.name,
-  //       totalItem: x.price * x.cantidad
-  //     })
-  //   })
-    
-  //   console.log(`le pego a la api de mercado-pago ======> 
-  //   ${JSON.stringify(prueba)}      
-  //   total $ ${pesosTotalCart()}`);
-
-  //   handleClose()
-  //   clear()
-  //   Navigate('/')
-  // }
-
+ 
 
   if (cart.length === 0) {
     return <div className="container  w-50 h-50 m-auto">
@@ -75,7 +48,7 @@ const Cart = () => {
 
     <tr key={item.id}>
       <th scope="row">{item.name}</th>
-      {/* agregar contador para setear cantidad desde la vista del Cart */}
+      
       <td>{item.cantidad}</td>
       <td>$ {item.price}</td>
       <td>$ {item.cantidad * item.price}</td>
@@ -98,24 +71,6 @@ const Cart = () => {
 
       <Link to="/" className="btn fs-5 cartFont">Quiero Mas!</Link>
 
-      {/* <Modal
-        show={show}
-        onHide={handleClose}
-        backdrop="static"
-        keyboard={false}
-      >
-        <Modal.Header closeButton>
-          <Modal.Title className='cartFont  mx-auto display-4'>Kaneda</Modal.Title>
-        </Modal.Header>
-        <Modal.Body className='cartFont mx-auto fs-3'>
-         NO TE OLVIDES EL POSTRE
-        <Button className='cartFont   btn-outline-dark text-white ms-4 p-2' as={Link}to="/category/postre">Buscar postre</Button>
-        </Modal.Body>
-        <Modal.Footer className='cartFont mx-auto fs-3'>
-          NO QUIERO POSTRE !  <Button variant="success cartFont ms-4 p-2" onClick={pagar}>PAGAR</Button>
-        </Modal.Footer>
-      </Modal> */}
- 
       <Checkout  show={show} setShow={setShow} />
     </div>
   )

@@ -20,6 +20,7 @@ const Item = (props) => {
               
             </div>
             <span>Categoria: {producto.category}</span>
+            <span className='z-index: 2 '>{producto.sale&& <img src={'https://i.postimg.cc/RVmrxcKs/sale.png'} className='opacity-50 w-50  position-absolute top-50 end-0' alt='...'/>}</span>
             <h3 className="card__price fs-5">${producto.price}</h3>
             <Link to={`/item/${producto.id}`}><button className="card__add fs-6">Info</button></Link>
           </div>
