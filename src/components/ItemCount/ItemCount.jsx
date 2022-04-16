@@ -20,7 +20,7 @@ const {stock , handleAdd,  setQuantity, quantity}=props
 
   const incremento = ()=>{
     quantity < 1 && setDisabled(false)
-    quantity < stock ? setQuantity(quantity+1): console.log("NO TENEMOS MAS!!");
+    quantity < stock && setQuantity(quantity+1);
 
   }
   const decremento = ()=>{
